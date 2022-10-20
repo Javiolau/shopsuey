@@ -1,6 +1,7 @@
-import data from './data'
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+
+import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
 
 
 function App() {
@@ -8,10 +9,11 @@ function App() {
     <BrowserRouter>
     <div>
       <header>
-        <a href="/">Shopsuey</a>
+        <Link to="/">Shopsuey</Link>
       </header>
       <main>
         <Routes>
+          <Route path='/product/:slug' element={<ProductScreen />}/>
           <Route path='/' element={<HomeScreen/>}/>
         </Routes>
         <h2></h2> 
