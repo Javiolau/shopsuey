@@ -10,6 +10,15 @@ body {
 .site-container{
   min-height: 100vh;
 }
+
+.rating > span{
+  color: gold;
+}
+
+.btn-primary{
+  background-color:#f0c040;
+  color: #404040;
+}
 main{
   flex:1;
 }
