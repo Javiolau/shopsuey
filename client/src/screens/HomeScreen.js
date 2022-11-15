@@ -4,6 +4,7 @@ import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from '../components/Product';
+import { Helmet } from 'react-helmet-async';
 //import data from '../data'
 
 const reducer = (state,action) => {
@@ -33,7 +34,7 @@ export default function HomeScreen() {
 
       dispatch({type: 'FETCH_REQUEST'});
       try{
-        const result = await axios.get('/api/products');
+        const result = await axios.get(`/api/products`);
         dispatch({type: 'FETCH_SUCCESS', payload: result.data});
       }catch(err){
         dispatch({type: 'FETCH_FAIL', payload: err.message});
@@ -47,6 +48,7 @@ export default function HomeScreen() {
   
   return (
     <div>
+        <Helmet><title>Shopsuey</title></Helmet>
         <h1>New Products</h1>
         <div className='products'>
           {loading ? ( 

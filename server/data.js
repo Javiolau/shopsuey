@@ -10,7 +10,7 @@ const data = {
             brand: 'Nike',
             rating: 4.5,
             numReviews: 17,
-            desciption: 'high quality product',
+            description: 'high quality product',
         },
         {
             name: 'Adidas Fit Pant',
@@ -18,11 +18,11 @@ const data = {
             category: 'Pant',
             image: '/images/p4.jpg',
             price: 65,
-            countInStock: 5,
+            countInStock: 0,
             brand: 'Adidas',
             rating: 5,
             numReviews: 10,
-            desciption: 'high quality product',
+            description: 'high quality product',
         },
         {
             name: 'Nike Slim pant',
@@ -34,7 +34,7 @@ const data = {
             brand: 'Nike',
             rating: 4.1,
             numReviews: 20,
-            desciption: 'high quality product',
+            description: 'high quality product',
         },
         {
             name: 'Adidas Fit Shirt',
