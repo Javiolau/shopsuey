@@ -48,6 +48,8 @@ function App() {
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/signin" element={<SigninScreen />} />
             <Route path='/' element={<HomeScreen/>}/>
+            <Route path='/signin' element={<SigninScreen/>}/>
+            <Route path='/cart' element={<CartScreen/>}/>            
           </Routes>
         </Container>
       </main>

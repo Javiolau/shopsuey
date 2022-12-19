@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useContext, useEffect, useReducer } from 'react'
 import Row from 'react-bootstrap/Row';
@@ -18,22 +18,25 @@ export default function CartScreen() {
         cart:{cartItems},
     } = state;
 
+    const updateCartHandler = async (item, quantity) => {
+        const {data} = await axios.get(`/api/products/${item._id}`);
+        if(data.countInStock < quantity) {
+
+            window.alert('Sorry Out of Stock');
+            return;
+          }
+          ctxDispatch({
+            type: 'CART_ADD_ITEM',
+            payload: {...item, quantity}
+          });
+    }
+    const removeItemHandler = (item) => {
+        ctxDispatch({type:'CART_REMOVE_ITEM', payload: item});
+
+    }
+
     const checkoutHandler = () => {
         navigate('/signin?redirect=/shipping');
-    };
-    const updateCartHandler = async (item, quantity) => {
-    const { data } = await axios.get(`/api/products/${item._id}`);
-    if (data.countInStock < quantity) {
-        window.alert('Sorry. Product is out of stock');
-        return;
-    }
-    ctxDispatch({
-        type: 'CART_ADD_ITEM',
-        payload: { ...item, quantity },
-    });
-    };
-    const removeItemHandler = (item) => {
-    ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
     };
 
   return (
@@ -66,24 +69,38 @@ export default function CartScreen() {
                                     </Col>
                                     <Col md = {3}>
                                         <Button variant="light" 
+<<<<<<< HEAD
                                                 onClick={() =>
                                                     updateCartHandler(item, item.quantity - 1)}
                                                 disabled={item.quantity === 1}    
                                                 >
+=======
+                                                onClick={()=>updateCartHandler(item,item.quantity-1)}
+                                                disabled={item.quantity === 1}>
+>>>>>>> f7842324ac84d4d9d0fa605d23dffcb7b09e15e7
                                             <i className='fas fa-minus-circle'></i>
                                         </Button>{" "}
                                         <span>{item.quantity}</span>{" "}
                                         <Button variant="light" 
+<<<<<<< HEAD
                                                 onClick={() =>
                                                     updateCartHandler(item, item.quantity + 1)}
+=======
+                                                onClick={()=>updateCartHandler(item,item.quantity+1)}
+                                                disabled={item.quantity === item.countInStock}
+>>>>>>> f7842324ac84d4d9d0fa605d23dffcb7b09e15e7
                                                 >
                                             <i className='fas fa-plus-circle'></i>
                                         </Button>
                                     </Col>
                                     <Col md = {3}>${item.price}</Col>
                                     <Col md = {2}>
+<<<<<<< HEAD
                                         <Button variant='light'
                                                 onClick={()=>removeItemHandler(item)}>
+=======
+                                        <Button variant='light' onClick={()=>removeItemHandler(item)}>
+>>>>>>> f7842324ac84d4d9d0fa605d23dffcb7b09e15e7
                                             <i className='fas fa-trash'></i>
                                         </Button>
                                     </Col>
@@ -109,8 +126,13 @@ export default function CartScreen() {
                                 <div className='d-grid'>
                                     <Button
                                      type="button"
+<<<<<<< HEAD
                                      onClick={checkoutHandler}
                                      variant='primary'
+=======
+                                     variant='primary'
+                                     onClick={checkoutHandler}
+>>>>>>> f7842324ac84d4d9d0fa605d23dffcb7b09e15e7
                                      disabled={cartItems.length===0}>Proceed to Checkout</Button>
                                 </div>
                             </ListGroup.Item>
@@ -122,4 +144,8 @@ export default function CartScreen() {
     </div>
     
   )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f7842324ac84d4d9d0fa605d23dffcb7b09e15e7
