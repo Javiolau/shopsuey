@@ -1,5 +1,6 @@
 import express from 'express';
-import Product from '../models/productModel';
+import data from '../data.js';
+import Product from '../models/productModel.js';
 
 const seedRouter = express.Router();
 
