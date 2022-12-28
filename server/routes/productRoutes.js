@@ -26,5 +26,4 @@ productRouter.get('/:id', async (req, res) => {
         res.status(404).send({message: 'Product Not Found'})
     }
 });
-
 export default productRouter;
